@@ -11,7 +11,13 @@ export async function load({ locals, params }) {
 	]);
 
 	const dirty = marked(article.body);
-	article.body = sanitizeHtml(dirty);
+	article.body = sanitizeHtml(dirty, {
+		allowedTags: sanitizeHtml.defaults.allowedTags.concat(['img']),
+		allowedAttributes: {
+		  ...sanitizeHtml.defaults.allowedAttributes,
+		  img: ['src', 'alt', 'title']
+		}
+	  });
 
 	return { article, comments };
 }

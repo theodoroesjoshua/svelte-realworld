@@ -34,7 +34,20 @@
 
 		<hr />
 
-		<div class="article-actions"></div>
+		<div class="article-actions">
+			<div class="article-meta">
+				<a href="/profile/@{data.article.author.username}">
+					<img src={data.article.author.image} alt={data.article.author.username} />
+				</a>
+			
+				<div class="info">
+					<a href="/profile/@{data.article.author.username}" class="author">{data.article.author.username}</a>
+					<span class="date">
+						{new Date(data.article.createdAt).toDateString()}
+					</span>
+				</div>
+			</div>
+		</div>
 
 		<div class="row">
 			<CommentContainer comments={data.comments} user={data.user} errors={[]} />
