@@ -1,17 +1,11 @@
-import adapter from '@sveltejs/adapter-static';
+import adapter from '@sveltejs/adapter-vercel';
 
-const dev = process.env.NODE_ENV === 'development';
-
+/** @type {import('@sveltejs/kit').Config} */
 export default {
-  kit: {
-    adapter: adapter({
-      pages: 'docs',
-      assets: 'docs',
-      fallback: 'app.html',
-      precompress: false
-    }),
-    paths: {
-      base: '/theodoroesjoshua.github.io/svelte-realworld' 
-    }
-  }
+	compilerOptions: {
+		runes: true
+	},
+	kit: {
+		adapter: adapter({ runtime: 'edge' })
+	}
 };
