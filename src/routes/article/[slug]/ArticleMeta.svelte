@@ -26,17 +26,15 @@
 	
 
 	{#if article.author.username === user?.username}
-		<span>
-			<a href="/editor/{article.slug}" class="btn btn-outline-secondary btn-sm">
-				<i class="ion-edit"></i> Edit Article
-			</a>
+		<a href="/editor/{article.slug}" class="btn btn-outline-secondary btn-sm">
+			<i class="ion-edit"></i> Edit Article
+		</a>
 
-			<form use:enhance method="POST" action="?/deleteArticle">
-				<button class="btn btn-outline-danger btn-sm">
-					<i class="ion-trash-a"></i> Delete Article
-				</button>
-			</form>
-		</span>
+		<form use:enhance method="POST" action="?/deleteArticle">
+			<button class="btn btn-outline-danger btn-sm">
+				<i class="ion-trash-a"></i> Delete Article
+			</button>
+		</form>
 	{:else if user}
 		<form
 			id="follow"
