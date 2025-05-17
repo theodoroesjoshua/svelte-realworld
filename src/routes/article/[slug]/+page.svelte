@@ -13,7 +13,7 @@
 	<div class="banner">
 		<div class="container">
 			<h1>{data.article.title}</h1>
-			<ArticleMeta article={data.article} user={data.user} />
+			<ArticleMeta article={data.article} user={data.user}/>
 		</div>
 	</div>
 
@@ -35,18 +35,7 @@
 		<hr />
 
 		<div class="article-actions">
-			<div class="article-meta">
-				<a href="/profile/@{data.article.author.username}">
-					<img src={data.article.author.image} alt={data.article.author.username} />
-				</a>
-			
-				<div class="info">
-					<a href="/profile/@{data.article.author.username}" class="author">{data.article.author.username}</a>
-					<span class="date">
-						{new Date(data.article.createdAt).toDateString()}
-					</span>
-				</div>
-			</div>
+			<ArticleMeta article={data.article} user={data.user}/>
 		</div>
 
 		<div class="row">
